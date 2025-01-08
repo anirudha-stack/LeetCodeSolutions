@@ -22,6 +22,8 @@ namespace ConsoleApp
 
         public static int RemoveDuplicates(int[] nums)
         {
+            if (nums.Length == 0) return 0;
+
             List<int> cleanedList = new List<int>();    
 
             List<int> ListNums = nums.ToList();
@@ -37,9 +39,7 @@ namespace ConsoleApp
                 }
 
             }
-            //nums = cleanedList.ToArray();
-
-            //Console.WriteLine(ListNums.Count);
+            
             return cleanedList.Count;
         }
     }
