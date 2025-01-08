@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RemoveDupsArray")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0d3befc6a0e1dbd549cf439ce44decd0f83ba575")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+78a6719f61d4de3341f9a2518f2c27a4c49c2a20")]
 [assembly: System.Reflection.AssemblyProductAttribute("RemoveDupsArray")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RemoveDupsArray")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
