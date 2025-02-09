@@ -1,5 +1,7 @@
 public class Solution {
     public string GreatestLetter(string s) {
+        GC.Collect();
+
         char greatest ='\0';
        for(int i=0;i<s.Length;i++){
         for(int j=i+1;j<s.Length;j++){
@@ -15,8 +17,7 @@ public class Solution {
 
        }
 
-        GC.Collect();
-
+        
         if(greatest =='\0') return string.Empty;
        return Convert.ToString(greatest);
     }
