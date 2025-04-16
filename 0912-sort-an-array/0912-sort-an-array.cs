@@ -1,31 +1,98 @@
 public class Solution {
     public int[] SortArray(int[] nums) {
         
-        return MergeSort(nums);
+        return QuickSort(nums);
     }
+
+
+   private int[] QuickSort(int[] nums)
+{
+    QSHelper(nums, 0, nums.Length - 1);
+    return nums;
+}
+
+private void QSHelper(int[] arr, int low, int high)
+{
+    if (low >= high)
+        return;
+
+    int pivotIndex = Partition(arr, low, high);
+
+    QSHelper(arr, low, pivotIndex - 1);
+    QSHelper(arr, pivotIndex + 1, high);
+}
+
+private int Partition(int[] arr, int low, int high)
+{
+    int pivot = arr[high]; // Use the last element as pivot
+    int i = low - 1;
+
+    for (int j = low; j < high; j++)
+    {
+        if (arr[j] <= pivot)
+        {
+            i++;
+            Swap(arr, i, j);
+        }
+    }
+
+    Swap(arr, i + 1, high); // Place pivot in correct position
+    return i + 1;
+}
+
+private void Swap(int[] arr, int i, int j)
+{
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+}
+
+
+
+    private int[] BubbleSortRecursive(int[] nums)
+{
+    return BubbleSortHelper(nums, nums.Length);
+}
+
+private int[] BubbleSortHelper(int[] nums, int n)
+{
+    // Base case: if only one element, return
+    if (n == 1)
+        return nums;
+
+    // One full pass of bubble sort
+    for (int i = 0; i < n - 1; i++)
+    {
+        if (nums[i] > nums[i + 1])
+        {
+            // Swap
+            int temp = nums[i];
+            nums[i] = nums[i + 1];
+            nums[i + 1] = temp;
+        }
+    }
+
+    // Recursive call on the rest of the array
+    return BubbleSortHelper(nums, n - 1);
+}
 
     private int[] BubbleSort(int[] nums){
 
          int n = nums.Length;
-        int j=0;
-        while(j <n){
-
-           
-
-            for(int i=1;i<n-j;i++){
-//Console.WriteLine($"Checking {nums[i-1]} , {nums[i]}");
-                    
-                if(nums[i-1] > nums[i]){
-                    //Console.WriteLine($"Swapping {nums[i-1]} , {nums[i]}");
-                    int temp = nums[i];
-                    nums[i] = nums[i-1];
-                    nums[i-1] = temp;
+      
+         for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                if(nums[i]>nums[j]){
+                      int temp = nums[i];
+                    nums[i] = nums[j];
+                    nums[j] = temp;
                 }
+            }
 
-            
-        }
-            j++;
-        }
+           // if(!swapped) break;
+
+         }
+
         return nums;
     }
 
