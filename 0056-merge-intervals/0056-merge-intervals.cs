@@ -4,13 +4,12 @@ public class Solution {
             int cmp = a[0].CompareTo(b[0]);
             return cmp != 0 ? cmp : a[1].CompareTo(b[1]);
         });
-        int m = intervals.Length-1;
+        int m = intervals.Length;
         List<(int,int)> output = new List<(int,int)>();
         int start =0;
         int end = 0;
-        for(int i=0;i<=m;i++){
+        for(int i=0;i<m;i++){
             
-            int runner = i;
             start = intervals[i][0];
             end = intervals[i][1];
           
