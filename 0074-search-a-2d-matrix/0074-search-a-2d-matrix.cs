@@ -8,13 +8,8 @@ public class Solution {
 
         for(int i=0;i<m;i++){
             
-            if(target > matrix[i][n-1]){
-                 Console.WriteLine($"Target greater than {matrix[i][n-1]}");
-                 
+            if(target <= matrix[i][n-1]){
                
-            }
-            else{
-                Console.WriteLine($"row set to {i}");    
                 currentRow= i;
                 break;
             }
@@ -23,7 +18,7 @@ public class Solution {
         if(currentRow == -1) return false;
 
         for(int i=0;i<n;i++){
-             Console.WriteLine($"Target = {target} and Checking against: {matrix[currentRow][i]}");
+            
                if( matrix[currentRow][i] == target){
                     answer= true;
                     break;
