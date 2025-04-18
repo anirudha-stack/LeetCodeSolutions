@@ -1,6 +1,43 @@
 public class Solution {
     public int LongestConsecutive(int[] nums) {
         
+        if(nums.Length == 0) return 0;
+        return OofNSolution(nums);
+        
+
+    }
+
+    public int OofNSolution(int[] nums){
+
+        HashSet<int> set = new HashSet<int>(nums);
+        int maxLen = 0;
+    
+
+
+        foreach(int num in set){
+           
+            if(!set.Contains(num-1)){
+                int currentMax = 0;
+                int currentNum = num;
+
+                while(set.Contains(currentNum+1)){
+
+                    currentMax++; // 3
+                    currentNum++;
+                    if(currentMax > maxLen){
+                        maxLen = currentMax; // 3
+                    }
+
+                }
+            }
+
+        }
+        return maxLen + 1;
+
+
+    }
+
+    public int sortingSolution(int[] nums){
         Array.Sort(nums);
 
 
@@ -29,6 +66,5 @@ public class Solution {
         }
 
         return maxLen+1;
-
     }
 }
