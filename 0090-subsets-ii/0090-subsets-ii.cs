@@ -1,25 +1,31 @@
 public class Solution {
     public IList<IList<int>> SubsetsWithDup(int[] nums) {
-        IList<IList<int>> answer = new List<IList<int>>();
         Array.Sort(nums);
-        int n = (int)Math.Pow(2, nums.Length);
+        var finalAnswer =  new List<IList<int>>();
+        var currentAnswer = new List<int>();
 
-        for(int X=0;X<n;X++){
-        var picked = new List<int>();
-            for (int i = 0; i < nums.Length; i++) {
-                // check if bit i of X is 1
-                if ( ((X >> i) & 1) == 1 ) {
-                    picked.Add(nums[i]);
-                }
-            }
+        subsetSolver(0,finalAnswer,currentAnswer,nums);
+        return finalAnswer;
 
-            if(!answer.Any(existing => existing.SequenceEqual(picked))){
-                answer.Add(picked);
-            }
+    
+    }
+
+    public void subsetSolver(int index,IList<IList<int>> totalAnswer,List<int> currentAnswer,int[] nums){
+       
+        totalAnswer.Add(new List<int>(currentAnswer));
+
+        for(int i=index;i<nums.Length;i++){
+            //if(!currentAnswer.Contains(nums[i]))
+            if(i != index && nums[i] == nums[i-1]) continue;
+            currentAnswer.Add(nums[i]);
+            subsetSolver(i+1,totalAnswer,currentAnswer,nums);
+            currentAnswer.Remove(nums[i]);
 
         }
 
-        return answer;
-    
+
+        return;
+
+
     }
 }
